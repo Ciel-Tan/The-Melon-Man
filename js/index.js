@@ -4,6 +4,7 @@ var game = {
 	context: this.canvas.getContext('2d', {alpha: false}),
 	counter: document.getElementById('counter'),
 	textures: new Image(),
+	newTextures: new Image(),
 	drawPending: false,
 	backgrounds: {
 			'sky': {
@@ -20,6 +21,7 @@ var game = {
 	},
 	options: {
 		texturesPath: "textures.png",
+		newTexturesPath: "new_char.jpg",
 		tileWidth: 24,
 		tileHeight: 24,
 		canvasWidth: window.innerWidth / 3,
@@ -31,7 +33,7 @@ var game = {
 		this.canvas.height = this.options.canvasHeight
 		this.context.imageSmoothingEnabled = false
 
-    this.backgrounds['sky'].image.src = "background.png"
+    	this.backgrounds['sky'].image.src = "background.png"
 		this.backgrounds['trees'].image.src = "trees.png"
 
 		for (var key in this.backgrounds) {
@@ -41,6 +43,7 @@ var game = {
 		}
 
 		this.textures.src = this.options.texturesPath
+		this.newTextures.src = this.options.newTexturesPath
 		this.textures.onload = onInit
 	},
 	map: {

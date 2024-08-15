@@ -36,6 +36,21 @@ game.drawPlayer = function () {
 	)
 }
 
+game.drawPlayer2 = function () {
+    actualPlayerTile = game.player.animations2[game.player.direction][game.player.animationFrameNumber % 4];
+    game.context.drawImage(
+        game.newTextures,
+        actualPlayerTile.tileColumn * 735 / 4,
+        actualPlayerTile.tileRow * 1101 / 4,
+        735 / 4,
+        1101 / 4,
+        Math.round(game.options.canvasWidth / 2 - game.options.tileWidth / 2),
+        Math.round(game.options.canvasHeight / 2 - game.options.tileHeight / 2),
+        game.options.tileWidth,
+        game.options.tileHeight
+    );
+};
+
 game.redraw = function () {
 	game.drawPending = false
 
@@ -74,7 +89,7 @@ game.redraw = function () {
 	}
 
 	// Draw the player
-	game.drawPlayer()
+	game.drawPlayer2()
 
 	game.counter.innerHTML = "A game by Karol Swierczek | Controls: A, D / arrows and SPACE | Points: " + Math.round(-game.player.highestY / (3 * game.options.tileHeight)), game.canvas.width - 50, game.canvas.height - 12
 }
